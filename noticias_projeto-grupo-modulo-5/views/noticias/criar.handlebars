@@ -1,0 +1,39 @@
+<!-- Cabeçalho da página -->
+ <header class="masthead" style="background-image: url('/assets/img/about-bg.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                 <div class="site-heading">
+                    <h1>Painel</h1>
+                    <span class="subheading">Escreva e poste notícias de qualquer lugar.</span>
+                 </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Conteúdo da página-->
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+                <h2>Escrever Notícia:</h2>
+                <br>
+                <form action="/noticias/add" method="POST">
+                    <div class="form-control">
+                        <label for="title">Título:</label>
+                        <input class="input-group input-group-lg" type="text" name="titulo" placeholder="Digite o título" >
+                        <hr class="my-4" />
+                        <label for="subtitulo">Subtítulo:</label>
+                        <input class="input-group input-group-lg" type="text" name="subtitulo" placeholder="Digite o subtítulo" >
+                        <hr class="my-4" />
+                        <label for="noticia">Notícia:</label>
+                        <textarea class="input-group input-group-lg" placeholder="Digite a notícia" style="height: 300px" name="noticia"></textarea>
+                        <hr class="my-4" />
+                    <br>
+                    <input  class="login100-form-btn" type="submit" value="Postar Notícia">
+                </form>
+                <br><br><br>
+                <a href="/noticias/painel">Voltar</a>
+                <br><br><br>
+        </div>    
+     </div>           
+</div>

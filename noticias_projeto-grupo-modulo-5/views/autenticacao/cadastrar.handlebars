@@ -1,0 +1,77 @@
+<!--<div class="auth-container">
+    <h2>Cadastrar</h2>
+    <form action="/cadastrar" method="POST">
+        <div class="form-control">
+            <label for="text">Nome:</label>
+            <input type="name" name="nome" placeholder="Digite o seu nome" required>
+        </div>
+        <div class="form-control">
+            <label for="email">E-mail:</label>
+            <input type="email" name="email" placeholder="Digite o seu e-mail" required>
+        </div>
+            <div class="form-control">
+            <label for="password">Senha:</label>
+            <input type="password" name="senha" placeholder="Digite a sua senha" required>
+        </div>
+        <div class="form-control">
+            <label for="confirmpassword">Confirmação de senha:</label>
+            <input type="password" name="confirmaSenha" placeholder="Confirme a sua senha" required>
+        </div>
+        <input type="submit" value="Cadastrar">
+        <p>Já possui conta? <a href="/entrar">Clique aqui</a></p>
+    </form>
+</div>-->
+<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url('assets/img/bg-01.jpg');">
+					<span class="login100-form-title-1">
+						Cadastrar
+					</span>
+				</div>
+				{{#if messages.message}}
+                <p class="alert-danger text-center col-3 px-2 mt-2 position-relative mx-auto">{{messages.message}}</p>
+            	{{/if}}
+            	{{#if message}}
+                <p class="alert-danger text-center col-3 px-2 mt-2 position-relative mx-auto">{{message}}</p>
+            	{{/if}}
+				<form  action="/cadastrar" method="POST" class="login100-form validate-form">
+
+                    <div class="wrap-input100 validate-input m-b-26" data-validate="Este campo é obrigatório">
+						<span class="label-input100">Nome</span>
+						<input class="input100" type="name" name="nome" placeholder="Digite seu nome" required>
+						<span class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 validate-input m-b-26" data-validate="Este campo é obrigatório">
+						<span class="label-input100">Email</span>
+						<input class="input100" type="email" name="email" placeholder="Digite seu email" required>
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-18" data-validate= "Este campo é obrigatório">
+						<span class="label-input100">Senha</span>
+						<input class="input100" type="password" name="senha" placeholder="Digite sua senha" required>
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-18" data-validate= "Este campo é obrigatório">
+						<span class="label-input100">Confirmação de senha</span>
+						<input class="input100" type="password" name="confirmaSenha" placeholder="confirme sua senha" required>
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="flex-sb-m w-full p-b-30">
+						<div>
+							<a href="/entrar" class="txt1">
+								Já tem cadastro? Entre aqui!
+							</a>
+						</div>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<input  type="submit" value=" Cadastrar" class="login100-form-btn">	
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>

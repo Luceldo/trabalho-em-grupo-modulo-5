@@ -1,0 +1,46 @@
+<!-- Cabeçalho da página -->
+<header class="masthead" style="background-image: url('/assets/img/about-bg.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                 <div class="site-heading">
+                    <h1>Painel</h1>
+                    <span class="subheading">Escreva e poste notícias de qualquer lugar.</span>
+                 </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Conteúdo da página-->
+<div class="container px-4 px-lg-5">
+    <a href="/noticias/add" class="login100-form-btn mx-auto" style="width: 160px;">Escreva já!</a><br><br>
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-9 col-xl-7">
+            <h3>Suas Noticias:</h3>
+            <br><br>
+                {{#each noticias}}
+                        <div class="row ml-0 pl-0">
+                            <div class="col-4">
+                                <span>{{this.titulo}}</span><br>
+                            </div>
+                            <div class="col-4">
+                                <span class="action">
+                                    <a href="/noticias/editar/{{this.id}}"><input type="submit" value="Editar" class="login100-form-btn"></a><br>
+                                </span>
+                            </div>
+                            <div class="col-4">
+                                <form action="/noticias/remover" method="POST">
+                                    <input type="hidden" name="id" value="{{this.id}}">
+                                    <input type="submit" value="Excluir" class="login100-form-btn">                     
+                                </form>
+                            </div>
+                        </div>
+                        <br><br><br>
+                {{/each}}
+            {{#if SemNoticias}}
+                <h5>Você ainda não criou nenhuma notícia!</h5>
+                <br><br>
+            {{/if}}
+        </div>           
+    </div> 
+</div>

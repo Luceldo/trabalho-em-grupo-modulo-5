@@ -1,0 +1,88 @@
+<!-- Cabeçalho da página -->
+ <header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                 <div class="site-heading">
+                    <h1>True News</h1>
+                    <span class="subheading">O seu portal de notícias confiáveis.</span>
+                 </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Conteúdo da página -->
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+             {{#if busca}}
+             <h1>Você está buscando por: <span>{{busca}}</span></h1>
+                {{#if quantidadeNoticias }}
+                <p>Foram encontradas <span>{{quantidadeNoticias}}</span> Noticia(s)</p>
+                {{else}}
+                <p>Nenhuma noticia encontrada para o termo <span>{{search}}</span></p>
+                {{/if}}
+             {{else}}
+             <h1>Veja nossas Notícias :</h1>
+             <br>
+             {{/if}}
+             <form action="/" method="GET">
+             <div class="row">
+                <div class="col-8 ps-2 fs-6">
+                    <input type="text" class="form-range form-control-lg" name="busca" placeholder="  Buscar notícias...">         
+                </div>
+                <div class="col ps-0">
+                    <input type="submit" class="login100-form-btn" value="Buscar">
+                </div>
+             </form>
+             </div>
+             <br><br>
+            <div class="container ps-0 fs-6">
+                <div class="row align-items-start">
+                    <div class="col text-nowrap">
+                        <span>Ordenar por:</span> 
+                    </div>
+                    <div class="col ps-0 text-nowrap">
+                        <form action="/" method="GET">
+                            <input type="hidden" name="busca" value="{{this.busca}}">
+                            <input type="hidden" name="ordem" value="new">
+                            <button type="submit"><i class="bi bi-arrow-up"></i> Mais novas</button>
+                        </form>
+                    </div>
+                    <div class="col ps-0 text-nowrap">
+                        <form action="/" method="GET">
+                            <input type="hidden" name="busca" value="{{this.busca}}">
+                            <input type="hidden" name="ordem" value="old">
+                            <button type="submit"><i class="bi bi-arrow-down"></i> Mais antigas</button>
+                        </form>
+                    </div>
+                    <div class="col">
+                        <a href="/">
+                        <input  type="submit" class="login100-form-btn" value="Limpar">
+                        </a> 
+                    </div>
+                </div>
+            </div>
+            {{#each noticias}}
+                <!-- Notícias-->
+                <div class="post-preview">
+                    <a>
+                        <h2 class="post-title">{{this.titulo}}</h2>
+                        <h3 class="post-subtitle">{{this.subtitulo}}</h3>
+                    </a>
+                    <p class="post-meta">
+                        Postado por <strong><span class="text-dark">{{this.Usuario.nome}}</span></strong>
+                        em <span>{{#formatDate}}{{this.createdAt}}{{/formatDate}}</span>
+                    </p>
+                </div>
+                <article>
+                    <div class="container px-4 px-lg-5">
+                        <div class="row gx-6 gx-lg-5">
+                                <p>{{this.noticia}}</p>
+                        </div>
+                    </div>
+                </article>
+                <hr class="my-4" />
+            {{/each}}
+    </div>
+</div>    
